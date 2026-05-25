@@ -24,7 +24,7 @@ import pygame
 
 # ── Configuration — edit these ─────────────────────────────────────────────────
 
-KEYWORDS       = ["alarm", "help", "emergency"]  # Words that trigger the alarm
+KEYWORDS       = ["tango", "harbor", "harbor unit"]  # Words that trigger the alarm
                                                    # (all lowercase, Vosk returns lowercase)
 
 MODEL_PATH     = "./vosk-model-small-en-us"       # Path to your downloaded Vosk model folder
