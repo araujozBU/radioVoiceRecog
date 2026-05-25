@@ -33,7 +33,7 @@ ALARM_FILE     = "./alarm.wav"                    # Path to alarm sound (WAV rec
 
 SAMPLE_RATE    = 16000   # Hz — Vosk small models work best at 16 kHz
 BLOCK_SIZE     = 8000    # Samples per audio block (~0.5 s at 16 kHz)
-MIC_DEVICE     = None    # None = system default; set to an int index to pick a specific mic
+MIC_DEVICE     = 2       # USB audio adapter input
                           # Run  python3 -c "import sounddevice as sd; print(sd.query_devices())"
                           # to list available devices
 
