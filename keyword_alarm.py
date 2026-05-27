@@ -139,11 +139,14 @@ def play_startup_tone():
 
         arr = np.arange(int(sample_rate * duration))
 
-        wave_data = (
+        mono = (
             32767 *
             0.4 *
             np.sin(2 * np.pi * freq * arr / sample_rate)
         ).astype(np.int16)
+
+        # Convert mono -> stereo
+        wave_data = np.column_stack((mono, mono))
 
         sound = pygame.sndarray.make_sound(wave_data)
 
