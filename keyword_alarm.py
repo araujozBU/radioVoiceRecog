@@ -66,7 +66,7 @@ GRAMMAR_WORDS = [
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-MODEL_PATH     = "./vosk-model-en-us-0.22"
+MODEL_PATH     = "./vosk-model-small-en-us-0.15"
 ALARM_FILE     = "./alarm.wav"
 
 MIC_SAMPLE_RATE = 44100
@@ -331,8 +331,6 @@ class KeywordListener:
 
         self._running = True
 
-        print("\n✅ Listening for callsign...\n")
-
         with sd.RawInputStream(
             samplerate=MIC_SAMPLE_RATE,
             blocksize=self._block_size,
@@ -341,6 +339,10 @@ class KeywordListener:
             channels=1,
             callback=self._audio_callback,
         ):
+
+            print("\n✅ Listening for callsign...\n")
+
+            play_startup_tone()
 
             while self._running:
 
@@ -384,8 +386,6 @@ class KeywordListener:
 def main():
 
     alarm_path = ensure_alarm_sound(ALARM_FILE)
-
-    play_startup_tone()
 
     alarm = AlarmPlayer(
         alarm_path,
