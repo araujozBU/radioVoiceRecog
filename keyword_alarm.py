@@ -67,6 +67,7 @@ TRIGGER_PHRASES = [
     "tango arbor two",
     "tango arbor",
     "arbor unit",
+    "marine unit"
 ]
 
 # Fallback: fire if ANY of these words appear in the transcription.
@@ -74,7 +75,7 @@ TRIGGER_PHRASES = [
 FALLBACK_KEYWORDS = [
     "harbor",
     "harbour",
-    "arbor",    # phonetic mishearing of harbor
+    "marine", # phonetic mishearing of harbor
 ]
 
 # Vosk grammar: the ONLY words Vosk is allowed to recognise.
