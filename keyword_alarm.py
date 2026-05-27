@@ -124,37 +124,19 @@ def ensure_alarm_sound(path: str) -> str:
 
 def play_startup_tone():
 
-    sample_rate = 44100
+    try:
 
-    duration = 0.12
+        startup_sound = pygame.mixer.Sound(
+            "./startup.wav"
+        )
 
-    tones = [
-        1200,
-        1700,
-    ]
+        startup_sound.play()
 
-    pygame.mixer.init(frequency=sample_rate)
+        pygame.time.delay(400)
 
-    for freq in tones:
+    except Exception as e:
 
-        arr = np.arange(int(sample_rate * duration))
-
-        mono = (
-            32767 *
-            0.4 *
-            np.sin(2 * np.pi * freq * arr / sample_rate)
-        ).astype(np.int16)
-
-        # Convert mono -> stereo
-        wave_data = np.column_stack((mono, mono))
-
-        sound = pygame.sndarray.make_sound(wave_data)
-
-        sound.play()
-
-        pygame.time.delay(int(duration * 1000))
-
-        time.sleep(0.05)
+        print(f"[startup tone error] {e}")
 
 
 # ── Alarm Player ──────────────────────────────────────────────────────────────
