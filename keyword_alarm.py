@@ -126,13 +126,13 @@ def play_startup_tone():
 
     try:
 
-        startup_sound = pygame.mixer.Sound(
-            "./startup.wav"
-        )
+        startup_sound = pygame.mixer.Sound(ALARM_FILE)
 
         startup_sound.play()
 
-        pygame.time.delay(400)
+        pygame.time.delay(350)
+
+        startup_sound.stop()
 
     except Exception as e:
 
