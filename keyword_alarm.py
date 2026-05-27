@@ -93,7 +93,7 @@ GRAMMAR_WORDS = [
 MODEL_PATH     = "./vosk-model-small-en-us"  # Path to Vosk model folder
 ALARM_FILE     = "./alarm.wav"               # WAV alarm sound; "" = auto-generate beep
 
-SAMPLE_RATE    = 16000   # Hz — do not change, Vosk small models require 16 kHz
+SAMPLE_RATE    = 44100   # Hz — do not change, Vosk small models require 16 kHz
 BLOCK_SIZE     = 4000    # Reduced from 8000 → faster response (~0.25 s blocks)
 MIC_DEVICE     = 2       # USB audio adapter input
 
