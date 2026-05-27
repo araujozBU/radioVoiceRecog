@@ -19,7 +19,7 @@ import numpy as np
 import sounddevice as sd
 
 # ── Config ─────────────────────────────────────────────────────────────────────
-SAMPLE_RATE = 16000
+SAMPLE_RATE = 44100
 BLOCK_SIZE  = 4000   # smaller = more responsive meter
 DEVICE      = 2      # USB audio adapter input
 METER_WIDTH = 40     # characters wide for the volume bar
