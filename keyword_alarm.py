@@ -126,23 +126,30 @@ def play_startup_tone():
 
     sample_rate = 44100
 
+    duration = 0.12
+
     tones = [
-        (1200, 0.12),
-        (1700, 0.12),
+        1200,
+        1700,
     ]
 
-    for freq, duration in tones:
+    pygame.mixer.init(frequency=sample_rate)
+
+    for freq in tones:
 
         arr = np.arange(int(sample_rate * duration))
 
         wave_data = (
-            0.4 * np.sin(
-                2 * np.pi * freq * arr / sample_rate
-            )
-        ).astype(np.float32)
+            32767 *
+            0.4 *
+            np.sin(2 * np.pi * freq * arr / sample_rate)
+        ).astype(np.int16)
 
-        sd.play(wave_data, sample_rate)
-        sd.wait()
+        sound = pygame.sndarray.make_sound(wave_data)
+
+        sound.play()
+
+        pygame.time.delay(int(duration * 1000))
 
         time.sleep(0.05)
 
